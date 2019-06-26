@@ -1,0 +1,18 @@
+Calculator is on. Result = 0.00
+Result + 5.00 = 5.00. New result = 5.00
+Result - 2.00 = 3.00. Updated result = 3.00
+Result * 5.00 = 15.00. Updated result = 15.00
+Result / 3.00 = 5.00. Updated result = 5.00
+% is an unknown operator
+D is an unknown value
+X is an unknown operator and D is an unknown value
+Please enter 1 operator and 1 value separated by 1 space
+Please enter 1 operator and 1 value separated by 1 space
+Please enter 1 operator and 1 value separated by 1 space
+Result / 1000000.00 = 0.00. Updated result = 0.00
+Can not divide by 0
+Result / 0.00 = 5.00. Updated result = 5.00
+Please enter 1 operator and 1 value separated by 1 space
+Result - 1.67 = 3.33. Updated result = 3.33
+r is an unknown operator and R is an unknown value
+Final result = 3.33

@@ -1,0 +1,10 @@
+---- first withdraw ----
+updated balance : 3000
+---- second withdraw ----
+updated balance : 2000
+---- third withdraw ----
+AMOUNT_INVALID
+updated balance : 2000
+---- fourth withdraw ----
+BALANCE_NOT_ENOUGH
+updated balance : 2000
