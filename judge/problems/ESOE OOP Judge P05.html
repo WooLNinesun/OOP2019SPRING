@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://oopjudge.cklab.org/problems/5/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>ESOE OOP Judge</title>
+  <link rel="stylesheet" href="./static/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/font-awesome.min.css">
+  <link rel="stylesheet" href="./static/MathJax.css">
+  <link rel="stylesheet" href="./static/base.css">
+  <link rel="stylesheet" href="./static/problem_detail.css">
+</head>
+
+<body>
+  <div
+    style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
+    <div id="MathJax_Hidden"></div>
+  </div>
+  <div id="MathJax_Message" style="display: none;"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <h2 class="text-center">Pizza</h2>
+        <h3>Deadline</h3>
+        <p>2019-06-24 23:59:59.</p>
+        <h3>Description</h3>
+        <p>Create a class named <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Pizza&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-1"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.64em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-2"><span class="texatom" id="MathJax-Span-3"><span class="mrow"
+                          id="MathJax-Span-4"><span class="mtext" id="MathJax-Span-5"
+                            style="font-family: MathJax_Typewriter;">Pizza</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Pizza</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-1">\texttt{Pizza}</script> that stores information about a single
+          pizza. It should contain the following:</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-6"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-7"><span class="texatom" id="MathJax-Span-8"><span class="mrow"
+                          id="MathJax-Span-9"><span class="mtext" id="MathJax-Span-10"
+                            style="font-family: MathJax_Typewriter;">1.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-2">\texttt{1.}</script> Private instance variables to store the
+          size of the pizza(either small, medium or large), the number of cheese toppings, the number of pepperoni
+          toppings, and the number of ham toppings. String for size and int for the others.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-11"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-12"><span class="texatom" id="MathJax-Span-13"><span class="mrow"
+                          id="MathJax-Span-14"><span class="mtext" id="MathJax-Span-15"
+                            style="font-family: MathJax_Typewriter;">2.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-3">\texttt{2.}</script> Default constructor that set size to
+          small, the other three instance variables to 1.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-4-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;3.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-16"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-17"><span class="texatom" id="MathJax-Span-18"><span class="mrow"
+                          id="MathJax-Span-19"><span class="mtext" id="MathJax-Span-20"
+                            style="font-family: MathJax_Typewriter;">3.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">3.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-4">\texttt{3.}</script> Constructor that can set all of the
+          instance variables.<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;4.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-21"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-22"><span class="texatom" id="MathJax-Span-23"><span class="mrow"
+                          id="MathJax-Span-24"><span class="mtext" id="MathJax-Span-25"
+                            style="font-family: MathJax_Typewriter;">4.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">4.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-5">\texttt{4.}</script> Public methods to get and set the instance
+          variables.<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;5.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-26"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-27"><span class="texatom" id="MathJax-Span-28"><span class="mrow"
+                          id="MathJax-Span-29"><span class="mtext" id="MathJax-Span-30"
+                            style="font-family: MathJax_Typewriter;">5.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">5.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-6">\texttt{5.}</script> A public method named <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-7-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;calcCost()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-31"
+                style="width: 6.443em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.272em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1005.1em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-32"><span class="texatom" id="MathJax-Span-33"><span class="mrow"
+                          id="MathJax-Span-34"><span class="mtext" id="MathJax-Span-35"
+                            style="font-family: MathJax_Typewriter;">calcCost()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">calcCost()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-7">\texttt{calcCost()}</script> that return a <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-8-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;double&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-36"
+                style="width: 3.867em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.165em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.11em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-37"><span class="texatom" id="MathJax-Span-38"><span class="mrow"
+                          id="MathJax-Span-39"><span class="mtext" id="MathJax-Span-40"
+                            style="font-family: MathJax_Typewriter;">double</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">double</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-8">\texttt{double}</script> that is the cost of the pizza. Pizza
+          cost is determined by:</p>
+
+        <p>Small: $10 + $2 per topping<br>Medium: $12 + $2 per topping<br>Large: $14 + $2 per topping<br>For example, a
+          large pizza with one cheese, one pepperoni and two ham toppings should cost a total of $22.</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-9-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;6.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-41"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-42"><span class="texatom" id="MathJax-Span-43"><span class="mrow"
+                          id="MathJax-Span-44"><span class="mtext" id="MathJax-Span-45"
+                            style="font-family: MathJax_Typewriter;">6.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">6.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-9">\texttt{6.}</script> An overload method <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-10-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;equals()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-46"
+                style="width: 5.097em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 4.16em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1003.98em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-47"><span class="texatom" id="MathJax-Span-48"><span class="mrow"
+                          id="MathJax-Span-49"><span class="mtext" id="MathJax-Span-50"
+                            style="font-family: MathJax_Typewriter;">equals()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">equals()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-10">\texttt{equals()}</script> that determine whether this pizza
+          is the same as the other one by their size, the number of cheese toppings, the number of pepperoni toppings,
+          and the number of ham toppings.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-11-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;7.&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-51"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.88em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-52"><span class="texatom" id="MathJax-Span-53"><span class="mrow"
+                          id="MathJax-Span-54"><span class="mtext" id="MathJax-Span-55"
+                            style="font-family: MathJax_Typewriter;">7.</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">7.</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-11">\texttt{7.}</script> An override method <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-12-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;toString()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-56"
+                style="width: 6.443em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.272em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1005.1em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-57"><span class="texatom" id="MathJax-Span-58"><span class="mrow"
+                          id="MathJax-Span-59"><span class="mtext" id="MathJax-Span-60"
+                            style="font-family: MathJax_Typewriter;">toString()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">toString()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-12">\texttt{toString()}</script> that return a String containing
+          the pizza size, quantity of each topping. The output format is as below:<br>size = small, numOfCheese = 0,
+          numOfPepperoni = 0, numOfHam = 0</p>
+
+        <h3>Input Format</h3>
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Pizza p1 = new Pizza(Size, NumberOfCheese, NumberOfPepperoni, NumberOfHam)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-61"
+                style="width: 47.602em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 38.996em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1038.82em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-62"><span class="texatom" id="MathJax-Span-63"><span class="mrow"
+                          id="MathJax-Span-64"><span class="mtext" id="MathJax-Span-65"
+                            style="font-family: MathJax_Typewriter;">Pizza <span style="margin-left: 0.296em;"></span>p1
+                            <span style="margin-left: 0.296em;"></span>= <span style="margin-left: 0.296em;"></span>new
+                            <span style="margin-left: 0.296em;"></span>Pizza(Size, <span
+                              style="margin-left: 0.296em;"></span>NumberOfCheese, <span
+                              style="margin-left: 0.296em;"></span>NumberOfPepperoni, <span
+                              style="margin-left: 0.296em;"></span>NumberOfHam)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Pizza p1 = new Pizza(Size, NumberOfCheese, NumberOfPepperoni,
+                    NumberOfHam)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex"
+            id="MathJax-Element-13">\texttt{Pizza p1 = new Pizza(Size, NumberOfCheese, NumberOfPepperoni, NumberOfHam)}</script>
+          , where <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-14-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Size&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-66"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-67"><span class="texatom" id="MathJax-Span-68"><span class="mrow"
+                          id="MathJax-Span-69"><span class="mtext" id="MathJax-Span-70"
+                            style="font-family: MathJax_Typewriter;">Size</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Size</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-14">\texttt{Size}</script> is a string and <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-15-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfCheese&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-71"
+                style="width: 8.961em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.321em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.26em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-72"><span class="texatom" id="MathJax-Span-73"><span class="mrow"
+                          id="MathJax-Span-74"><span class="mtext" id="MathJax-Span-75"
+                            style="font-family: MathJax_Typewriter;">NumberOfCheese</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfCheese</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-15">\texttt{NumberOfCheese}</script>, <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-16-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfPepperoni&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-76"
+                style="width: 10.951em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 8.961em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1008.9em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-77"><span class="texatom" id="MathJax-Span-78"><span class="mrow"
+                          id="MathJax-Span-79"><span class="mtext" id="MathJax-Span-80"
+                            style="font-family: MathJax_Typewriter;">NumberOfPepperoni</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfPepperoni</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-16">\texttt{NumberOfPepperoni}</script>, <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-17-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfHam&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-81"
+                style="width: 7.087em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.799em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1005.8em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-82"><span class="texatom" id="MathJax-Span-83"><span class="mrow"
+                          id="MathJax-Span-84"><span class="mtext" id="MathJax-Span-85"
+                            style="font-family: MathJax_Typewriter;">NumberOfHam</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfHam</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-17">\texttt{NumberOfHam}</script> are integers and that <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-18-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfCheese&lt;/mtext&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-86"
+                style="width: 14.64em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 12.005em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1011.95em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-87"><span class="mn" id="MathJax-Span-88"
+                        style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-89"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="texatom"
+                        id="MathJax-Span-90" style="padding-left: 0.296em;"><span class="mrow"
+                          id="MathJax-Span-91"><span class="mtext" id="MathJax-Span-92"
+                            style="font-family: MathJax_Typewriter;">NumberOfCheese</span></span></span><span class="mo"
+                        id="MathJax-Span-93" style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span
+                        class="mn" id="MathJax-Span-94"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">100</span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>0</mn>
+                <mo>≤</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfCheese</mtext>
+                </mrow>
+                <mo>≤</mo>
+                <mn>100</mn>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-18">0 \leq \texttt{NumberOfCheese} \leq 100</script>, <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-19-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfPepperoni&lt;/mtext&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-95"
+                style="width: 16.689em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 13.645em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1013.59em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-96"><span class="mn" id="MathJax-Span-97"
+                        style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-98"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="texatom"
+                        id="MathJax-Span-99" style="padding-left: 0.296em;"><span class="mrow"
+                          id="MathJax-Span-100"><span class="mtext" id="MathJax-Span-101"
+                            style="font-family: MathJax_Typewriter;">NumberOfPepperoni</span></span></span><span
+                        class="mo" id="MathJax-Span-102"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="mn"
+                        id="MathJax-Span-103"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">100</span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>0</mn>
+                <mo>≤</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfPepperoni</mtext>
+                </mrow>
+                <mo>≤</mo>
+                <mn>100</mn>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-19">0 \leq \texttt{NumberOfPepperoni} \leq 100</script>, <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-20-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfHam&lt;/mtext&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-104"
+                style="width: 12.825em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 10.483em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1010.42em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-105"><span class="mn" id="MathJax-Span-106"
+                        style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-107"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="texatom"
+                        id="MathJax-Span-108" style="padding-left: 0.296em;"><span class="mrow"
+                          id="MathJax-Span-109"><span class="mtext" id="MathJax-Span-110"
+                            style="font-family: MathJax_Typewriter;">NumberOfHam</span></span></span><span class="mo"
+                        id="MathJax-Span-111" style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span
+                        class="mn" id="MathJax-Span-112"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">100</span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>0</mn>
+                <mo>≤</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfHam</mtext>
+                </mrow>
+                <mo>≤</mo>
+                <mn>100</mn>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-20">0 \leq \texttt{NumberOfHam} \leq 100</script>.</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-21-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Pizza p2 = new Pizza()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-113"
+                style="width: 14.172em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.595em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1011.42em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-114"><span class="texatom" id="MathJax-Span-115"><span class="mrow"
+                          id="MathJax-Span-116"><span class="mtext" id="MathJax-Span-117"
+                            style="font-family: MathJax_Typewriter;">Pizza <span style="margin-left: 0.296em;"></span>p2
+                            <span style="margin-left: 0.296em;"></span>= <span style="margin-left: 0.296em;"></span>new
+                            <span style="margin-left: 0.296em;"></span>Pizza()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Pizza p2 = new Pizza()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-21">\texttt{Pizza p2 = new Pizza()}</script>, default constructor
+          set size to small, the other three instance variables to 1.</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-22-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.setSize(Size)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-118"
+                style="width: 10.249em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 8.375em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1008.2em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-119"><span class="texatom" id="MathJax-Span-120"><span class="mrow"
+                          id="MathJax-Span-121"><span class="mtext" id="MathJax-Span-122"
+                            style="font-family: MathJax_Typewriter;">p2.setSize(Size)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.setSize(Size)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-22">\texttt{p2.setSize(Size)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-23-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Size&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-123"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-124"><span class="texatom" id="MathJax-Span-125"><span class="mrow"
+                          id="MathJax-Span-126"><span class="mtext" id="MathJax-Span-127"
+                            style="font-family: MathJax_Typewriter;">Size</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Size</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-23">\texttt{Size}</script> is a string.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-24-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.setNumberOfCheese(NumberOfCheese)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-128"
+                style="width: 23.071em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 18.914em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1018.74em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-129"><span class="texatom" id="MathJax-Span-130"><span class="mrow"
+                          id="MathJax-Span-131"><span class="mtext" id="MathJax-Span-132"
+                            style="font-family: MathJax_Typewriter;">p2.setNumberOfCheese(NumberOfCheese)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.setNumberOfCheese(NumberOfCheese)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-24">\texttt{p2.setNumberOfCheese(NumberOfCheese)}</script>, where
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-25-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfCheese&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-133"
+                style="width: 8.961em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.321em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.26em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-134"><span class="texatom" id="MathJax-Span-135"><span class="mrow"
+                          id="MathJax-Span-136"><span class="mtext" id="MathJax-Span-137"
+                            style="font-family: MathJax_Typewriter;">NumberOfCheese</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfCheese</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-25">\texttt{NumberOfCheese}</script> is an integer and that <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-26-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfCheese&lt;/mtext&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-138"
+                style="width: 14.64em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 12.005em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1011.95em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-139"><span class="mn" id="MathJax-Span-140"
+                        style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-141"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="texatom"
+                        id="MathJax-Span-142" style="padding-left: 0.296em;"><span class="mrow"
+                          id="MathJax-Span-143"><span class="mtext" id="MathJax-Span-144"
+                            style="font-family: MathJax_Typewriter;">NumberOfCheese</span></span></span><span class="mo"
+                        id="MathJax-Span-145" style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span
+                        class="mn" id="MathJax-Span-146"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">100</span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>0</mn>
+                <mo>≤</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfCheese</mtext>
+                </mrow>
+                <mo>≤</mo>
+                <mn>100</mn>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-26">0 \leq \texttt{NumberOfCheese} \leq 100</script>.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-27-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.setNumberOfPepperoni(NumberOfPepperoni)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-147"
+                style="width: 26.935em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 22.076em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1021.9em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-148"><span class="texatom" id="MathJax-Span-149"><span class="mrow"
+                          id="MathJax-Span-150"><span class="mtext" id="MathJax-Span-151"
+                            style="font-family: MathJax_Typewriter;">p2.setNumberOfPepperoni(NumberOfPepperoni)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.setNumberOfPepperoni(NumberOfPepperoni)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-27">\texttt{p2.setNumberOfPepperoni(NumberOfPepperoni)}</script>,
+          where <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-28-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfPepperoni&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-152"
+                style="width: 10.951em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 8.961em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1008.9em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-153"><span class="texatom" id="MathJax-Span-154"><span class="mrow"
+                          id="MathJax-Span-155"><span class="mtext" id="MathJax-Span-156"
+                            style="font-family: MathJax_Typewriter;">NumberOfPepperoni</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfPepperoni</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-28">\texttt{NumberOfPepperoni}</script> is an integer and that
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-29-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfPepperoni&lt;/mtext&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-157"
+                style="width: 16.689em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 13.645em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1013.59em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-158"><span class="mn" id="MathJax-Span-159"
+                        style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-160"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="texatom"
+                        id="MathJax-Span-161" style="padding-left: 0.296em;"><span class="mrow"
+                          id="MathJax-Span-162"><span class="mtext" id="MathJax-Span-163"
+                            style="font-family: MathJax_Typewriter;">NumberOfPepperoni</span></span></span><span
+                        class="mo" id="MathJax-Span-164"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="mn"
+                        id="MathJax-Span-165"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">100</span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>0</mn>
+                <mo>≤</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfPepperoni</mtext>
+                </mrow>
+                <mo>≤</mo>
+                <mn>100</mn>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-29">0 \leq \texttt{NumberOfPepperoni} \leq 100</script>.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-30-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.setNumberOfHam(NumberOfHam)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-166"
+                style="width: 19.207em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 15.752em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1015.58em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-167"><span class="texatom" id="MathJax-Span-168"><span class="mrow"
+                          id="MathJax-Span-169"><span class="mtext" id="MathJax-Span-170"
+                            style="font-family: MathJax_Typewriter;">p2.setNumberOfHam(NumberOfHam)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.setNumberOfHam(NumberOfHam)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-30">\texttt{p2.setNumberOfHam(NumberOfHam)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-31-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfHam&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-171"
+                style="width: 7.087em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.799em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1005.8em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-172"><span class="texatom" id="MathJax-Span-173"><span class="mrow"
+                          id="MathJax-Span-174"><span class="mtext" id="MathJax-Span-175"
+                            style="font-family: MathJax_Typewriter;">NumberOfHam</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfHam</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-31">\texttt{NumberOfHam}</script> is an integer and that <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-32-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;NumberOfHam&lt;/mtext&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-176"
+                style="width: 12.825em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 10.483em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1010.42em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-177"><span class="mn" id="MathJax-Span-178"
+                        style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-179"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span class="texatom"
+                        id="MathJax-Span-180" style="padding-left: 0.296em;"><span class="mrow"
+                          id="MathJax-Span-181"><span class="mtext" id="MathJax-Span-182"
+                            style="font-family: MathJax_Typewriter;">NumberOfHam</span></span></span><span class="mo"
+                        id="MathJax-Span-183" style="font-family: MathJax_Main; padding-left: 0.296em;">≤</span><span
+                        class="mn" id="MathJax-Span-184"
+                        style="font-family: MathJax_Main; padding-left: 0.296em;">100</span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>0</mn>
+                <mo>≤</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">NumberOfHam</mtext>
+                </mrow>
+                <mo>≤</mo>
+                <mn>100</mn>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-32">0 \leq \texttt{NumberOfHam} \leq 100</script>.</p>
+
+        <h3>Output Format</h3>
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-33-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.getSize()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-185"
+                style="width: 7.731em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 6.326em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1006.15em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-186"><span class="texatom" id="MathJax-Span-187"><span class="mrow"
+                          id="MathJax-Span-188"><span class="mtext" id="MathJax-Span-189"
+                            style="font-family: MathJax_Typewriter;">p2.getSize()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.getSize()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-33">\texttt{p2.getSize()}</script>, return a string.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-34-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.getNumberOfCheese()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-190"
+                style="width: 14.113em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.537em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1011.36em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-191"><span class="texatom" id="MathJax-Span-192"><span class="mrow"
+                          id="MathJax-Span-193"><span class="mtext" id="MathJax-Span-194"
+                            style="font-family: MathJax_Typewriter;">p2.getNumberOfCheese()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.getNumberOfCheese()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-34">\texttt{p2.getNumberOfCheese()}</script>, return an integer
+          which is number of cheese of the pizza.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-35-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.getNumberOfPepperoni()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-195"
+                style="width: 16.045em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 13.118em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1012.94em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-196"><span class="texatom" id="MathJax-Span-197"><span class="mrow"
+                          id="MathJax-Span-198"><span class="mtext" id="MathJax-Span-199"
+                            style="font-family: MathJax_Typewriter;">p2.getNumberOfPepperoni()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.getNumberOfPepperoni()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-35">\texttt{p2.getNumberOfPepperoni()}</script>, return an integer
+          which is number of pepperoni of the pizza..<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-36-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.getNumberOfHam()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-200"
+                style="width: 12.181em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 9.956em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1009.78em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-201"><span class="texatom" id="MathJax-Span-202"><span class="mrow"
+                          id="MathJax-Span-203"><span class="mtext" id="MathJax-Span-204"
+                            style="font-family: MathJax_Typewriter;">p2.getNumberOfHam()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.getNumberOfHam()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-36">\texttt{p2.getNumberOfHam()}</script>, return an integer which
+          is number of ham of the pizza..</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-37-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.calcCost()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-205"
+                style="width: 8.375em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 6.853em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1006.68em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-206"><span class="texatom" id="MathJax-Span-207"><span class="mrow"
+                          id="MathJax-Span-208"><span class="mtext" id="MathJax-Span-209"
+                            style="font-family: MathJax_Typewriter;">p2.calcCost()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.calcCost()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-37">\texttt{p2.calcCost()}</script>, return a double showing the
+          price of the pizza.<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-38-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.toString()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-210"
+                style="width: 8.375em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 6.853em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1006.68em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-211"><span class="texatom" id="MathJax-Span-212"><span class="mrow"
+                          id="MathJax-Span-213"><span class="mtext" id="MathJax-Span-214"
+                            style="font-family: MathJax_Typewriter;">p2.toString()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.toString()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-38">\texttt{p2.toString()}</script>, return a string showing the
+          information of the pizza<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-39-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2.equals(OtherPizza)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-215"
+                style="width: 13.469em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.01em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1010.83em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-216"><span class="texatom" id="MathJax-Span-217"><span class="mrow"
+                          id="MathJax-Span-218"><span class="mtext" id="MathJax-Span-219"
+                            style="font-family: MathJax_Typewriter;">p2.equals(OtherPizza)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2.equals(OtherPizza)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-39">\texttt{p2.equals(OtherPizza)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-40-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;OtherPizza&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-220"
+                style="width: 6.443em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.272em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1005.27em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-221"><span class="texatom" id="MathJax-Span-222"><span class="mrow"
+                          id="MathJax-Span-223"><span class="mtext" id="MathJax-Span-224"
+                            style="font-family: MathJax_Typewriter;">OtherPizza</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">OtherPizza</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-40">\texttt{OtherPizza}</script> is a Pizza Object and the return
+          type is boolean. The method return <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-41-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;true&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-225"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.467em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-226"><span class="texatom" id="MathJax-Span-227"><span class="mrow"
+                          id="MathJax-Span-228"><span class="mtext" id="MathJax-Span-229"
+                            style="font-family: MathJax_Typewriter;">true</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">true</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-41">\texttt{true}</script> if the caller Pizza object <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-42-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;p2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-230"
+                style="width: 1.291em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 1.057em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1001em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-231"><span class="texatom" id="MathJax-Span-232"><span class="mrow"
+                          id="MathJax-Span-233"><span class="mtext" id="MathJax-Span-234"
+                            style="font-family: MathJax_Typewriter;">p2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">p2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-42">\texttt{p2}</script> has the same information with the inputed
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-43-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;OtherPizza&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-235"
+                style="width: 6.443em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.272em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1005.27em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-236"><span class="texatom" id="MathJax-Span-237"><span class="mrow"
+                          id="MathJax-Span-238"><span class="mtext" id="MathJax-Span-239"
+                            style="font-family: MathJax_Typewriter;">OtherPizza</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">OtherPizza</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-43">\texttt{OtherPizza}</script> object, return <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-44-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;false&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-240"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-241"><span class="texatom" id="MathJax-Span-242"><span class="mrow"
+                          id="MathJax-Span-243"><span class="mtext" id="MathJax-Span-244"
+                            style="font-family: MathJax_Typewriter;">false</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">false</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-44">\texttt{false}</script> otherwise.</p>
+
+        <h3>Sample Input</h3>
+        <pre><code>Pizza pizza = new Pizza("large", 3, 1, 5);
+System.out.println(pizza.getSize());
+System.out.println(pizza.getNumberOfCheese());
+System.out.println(pizza.getNumberOfPepperoni());
+System.out.println(pizza.getNumberOfHam());
+pizza = new Pizza();
+pizza.setSize("medium");
+pizza.setNumberOfCheese(2);
+pizza.setNumberOfPepperoni(4);
+pizza.setNumberOfHam(1);
+System.out.println(pizza.getSize());
+System.out.println(pizza.getNumberOfCheese());
+System.out.println(pizza.getNumberOfPepperoni());
+System.out.println(pizza.getNumberOfHam());
+System.out.println(pizza.calcCost());
+System.out.println(pizza.toString());
+System.out.println(pizza.equals(new Pizza("large", 2, 4, 1)));
+System.out.println(pizza.equals(new Pizza()));
+System.out.println(pizza.equals(new Pizza("medium", 2, 4, 1)));</code></pre>
+
+        <h3>Sample Output</h3>
+        <pre><code>large
+3
+1
+5
+medium
+2
+4
+1
+26.0
+size = medium, numOfCheese = 2, numOfPepperoni = 4, numOfHam = 1
+false
+false
+true</code></pre>
+
+        <h3>Required Files</h3>
+        <div id="required-files">
+          <ul>
+            <li><tt>Pizza.java</tt> (Submitted)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <h6 class="text-center">
+        Developed by Hao-Ying Liang (梁浩穎) and Wei-Cheng Li (李蔚成).<br>
+        Credits to <a target="_blank" href="http://ada2015.csie.org/">ADA2015</a> for inspiration.
+      </h6>
+      <h6>
+      </h6>
+    </div>
+  </footer>
+  <div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;">
+    <div id="MathJax_Font_Test"
+      style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;">
+    </div>
+  </div>
+</body>
+
+</html>

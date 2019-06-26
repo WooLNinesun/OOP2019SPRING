@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://oopjudge.cklab.org/problems/7/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>ESOE OOP Judge</title>
+  <link rel="stylesheet" href="./static/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/font-awesome.min.css">
+  <link rel="stylesheet" href="./static/MathJax.css">
+  <link rel="stylesheet" href="./static/base.css">
+  <link rel="stylesheet" href="./static/problem_detail.css">
+</head>
+
+<body>
+  <div
+    style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
+    <div id="MathJax_Hidden"></div>
+  </div>
+  <div id="MathJax_Message" style="display: none;"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <h2 class="text-center">SimpleArrayList</h2>
+        <h3>Deadline</h3>
+        <p>2019-06-24 23:59:59.</p>
+        <h3>Description</h3>
+        <p>When saving objects, array is a good choice, but sometimes it is inconvenient due to its fixed size.
+          Therefore, you have to implement a new data structure – a resizable-array called <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;SimpleArrayList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-1"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.79em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-2"><span class="texatom" id="MathJax-Span-3"><span class="mrow"
+                          id="MathJax-Span-4"><span class="mtext" id="MathJax-Span-5"
+                            style="font-family: MathJax_Typewriter;">SimpleArrayList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">SimpleArrayList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-1">\texttt{SimpleArrayList}</script> class to save data. The class
+          uses an <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Integer&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-6"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-7"><span class="texatom" id="MathJax-Span-8"><span class="mrow"
+                          id="MathJax-Span-9"><span class="mtext" id="MathJax-Span-10"
+                            style="font-family: MathJax_Typewriter;">Integer</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Integer</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-2">\texttt{Integer}</script> array as its internal instance
+          variable to save integer, and its size needs to be changed automatically based on user's manipulation. As
+          elements are added to a <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;SimpleArrayList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-11"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.79em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-12"><span class="texatom" id="MathJax-Span-13"><span class="mrow"
+                          id="MathJax-Span-14"><span class="mtext" id="MathJax-Span-15"
+                            style="font-family: MathJax_Typewriter;">SimpleArrayList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">SimpleArrayList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-3">\texttt{SimpleArrayList}</script>, its size grows
+          automatically. On the contrary, its size decreases while elements are removed from the array. To make this
+          class useful, implement it with the following methods:</p>
+
+        <p>1. Default constructor that sets the array size to zero.<br>2. Constructor that can set initial array size,
+          and set all <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Integer&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-16"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-17"><span class="texatom" id="MathJax-Span-18"><span class="mrow"
+                          id="MathJax-Span-19"><span class="mtext" id="MathJax-Span-20"
+                            style="font-family: MathJax_Typewriter;">Integer</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Integer</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-4">\texttt{Integer}</script> to zero in the array.<br>3. <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-5-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public void add(Integer i)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-21"
+                style="width: 16.748em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 13.703em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1013.53em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-22"><span class="texatom" id="MathJax-Span-23"><span class="mrow"
+                          id="MathJax-Span-24"><span class="mtext" id="MathJax-Span-25"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>void <span
+                              style="margin-left: 0.296em;"></span>add(Integer <span
+                              style="margin-left: 0.296em;"></span>i)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public void add(Integer i)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-5">\texttt{public void add(Integer i)}</script> – appends the
+          specified element to the end of this array.<br>4. <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-6-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public Integer get(int index)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-26"
+                style="width: 18.68em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 15.284em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1015.11em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-27"><span class="texatom" id="MathJax-Span-28"><span class="mrow"
+                          id="MathJax-Span-29"><span class="mtext" id="MathJax-Span-30"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>Integer <span
+                              style="margin-left: 0.296em;"></span>get(int <span
+                              style="margin-left: 0.296em;"></span>index)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public Integer get(int index)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-6">\texttt{public Integer get(int index)}</script> – returns the
+          element at the specified position in this array. If the specified position is out of range of the array,
+          returns <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-7-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;null&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-31"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-32"><span class="texatom" id="MathJax-Span-33"><span class="mrow"
+                          id="MathJax-Span-34"><span class="mtext" id="MathJax-Span-35"
+                            style="font-family: MathJax_Typewriter;">null</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">null</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-7">\texttt{null}</script>.<br>5. <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-8-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public Integer set(int index, Integer element)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-36"
+                style="width: 29.57em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 24.242em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1024.07em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-37"><span class="texatom" id="MathJax-Span-38"><span class="mrow"
+                          id="MathJax-Span-39"><span class="mtext" id="MathJax-Span-40"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>Integer <span
+                              style="margin-left: 0.296em;"></span>set(int <span
+                              style="margin-left: 0.296em;"></span>index, <span
+                              style="margin-left: 0.296em;"></span>Integer <span
+                              style="margin-left: 0.296em;"></span>element)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public Integer set(int index, Integer element)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex"
+            id="MathJax-Element-8">\texttt{public Integer set(int index, Integer element)}</script> – replaces the
+          element at the specified position in this array with the specified element, and returns the original element
+          at that specified position. If the specified position is out of range of the array, returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-9-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;null&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-41"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-42"><span class="texatom" id="MathJax-Span-43"><span class="mrow"
+                          id="MathJax-Span-44"><span class="mtext" id="MathJax-Span-45"
+                            style="font-family: MathJax_Typewriter;">null</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">null</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-9">\texttt{null}</script>.<br>6. <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-10-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public boolean remove(int index)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-46"
+                style="width: 20.612em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 16.865em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1016.69em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-47"><span class="texatom" id="MathJax-Span-48"><span class="mrow"
+                          id="MathJax-Span-49"><span class="mtext" id="MathJax-Span-50"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>boolean <span
+                              style="margin-left: 0.296em;"></span>remove(int <span
+                              style="margin-left: 0.296em;"></span>index)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public boolean remove(int index)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-10">\texttt{public boolean remove(int index)}</script> – If a
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-11-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;null&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-51"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-52"><span class="texatom" id="MathJax-Span-53"><span class="mrow"
+                          id="MathJax-Span-54"><span class="mtext" id="MathJax-Span-55"
+                            style="font-family: MathJax_Typewriter;">null</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">null</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-11">\texttt{null}</script> element is at the specified position,
+          returns <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-12-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;false&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-56"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-57"><span class="texatom" id="MathJax-Span-58"><span class="mrow"
+                          id="MathJax-Span-59"><span class="mtext" id="MathJax-Span-60"
+                            style="font-family: MathJax_Typewriter;">false</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">false</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-12">\texttt{false}</script>; otherwise removes it and returns
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;true&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-61"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.467em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-62"><span class="texatom" id="MathJax-Span-63"><span class="mrow"
+                          id="MathJax-Span-64"><span class="mtext" id="MathJax-Span-65"
+                            style="font-family: MathJax_Typewriter;">true</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">true</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-13">\texttt{true}</script>. Shifts any subsequent elements to the
+          left if removes succesfully.<br>7. <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-14-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public void clear()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-66"
+                style="width: 12.239em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 10.015em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1009.84em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-67"><span class="texatom" id="MathJax-Span-68"><span class="mrow"
+                          id="MathJax-Span-69"><span class="mtext" id="MathJax-Span-70"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>void <span
+                              style="margin-left: 0.296em;"></span>clear()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public void clear()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-14">\texttt{public void clear()}</script> – removes all of the
+          elements from this array.<br>8. <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-15-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public int size()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-71"
+                style="width: 10.951em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 8.961em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1008.78em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-72"><span class="texatom" id="MathJax-Span-73"><span class="mrow"
+                          id="MathJax-Span-74"><span class="mtext" id="MathJax-Span-75"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>int <span
+                              style="margin-left: 0.296em;"></span>size()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public int size()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-15">\texttt{public int size()}</script> – returns the number of
+          elements in this array.<br>9. <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-16-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;public boolean retainAll(SimpleArrayList l)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-76"
+                style="width: 27.638em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 22.661em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1022.49em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-77"><span class="texatom" id="MathJax-Span-78"><span class="mrow"
+                          id="MathJax-Span-79"><span class="mtext" id="MathJax-Span-80"
+                            style="font-family: MathJax_Typewriter;">public <span
+                              style="margin-left: 0.296em;"></span>boolean <span
+                              style="margin-left: 0.296em;"></span>retainAll(SimpleArrayList <span
+                              style="margin-left: 0.296em;"></span>l)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">public boolean retainAll(SimpleArrayList l)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-16">\texttt{public boolean retainAll(SimpleArrayList l)}</script>
+          – retains only the elements in this array that are contained in the specified <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-17-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;SimpleArrayList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-81"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.79em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-82"><span class="texatom" id="MathJax-Span-83"><span class="mrow"
+                          id="MathJax-Span-84"><span class="mtext" id="MathJax-Span-85"
+                            style="font-family: MathJax_Typewriter;">SimpleArrayList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">SimpleArrayList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-17">\texttt{SimpleArrayList}</script>. In other words, removes
+          from this array all of its elements that are not contained in the specified <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-18-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;SimpleArrayList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-86"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.79em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-87"><span class="texatom" id="MathJax-Span-88"><span class="mrow"
+                          id="MathJax-Span-89"><span class="mtext" id="MathJax-Span-90"
+                            style="font-family: MathJax_Typewriter;">SimpleArrayList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">SimpleArrayList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-18">\texttt{SimpleArrayList}</script>. Returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-19-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;true&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-91"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.467em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-92"><span class="texatom" id="MathJax-Span-93"><span class="mrow"
+                          id="MathJax-Span-94"><span class="mtext" id="MathJax-Span-95"
+                            style="font-family: MathJax_Typewriter;">true</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">true</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-19">\texttt{true}</script> if this array changed as a result. See
+          examples below:</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-20-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext class=&quot;MJX-tex-mathit&quot; mathvariant=&quot;italic&quot;&gt;Example 9-1:&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-96"
+                style="width: 6.853em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.624em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1005.62em, 2.52em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-97"><span class="texatom" id="MathJax-Span-98"><span class="mrow"
+                          id="MathJax-Span-99"><span class="mtext" id="MathJax-Span-100"
+                            style="font-family: MathJax_Main-italic;">E<span
+                              style="font-family: MathJax_Main-italic;">x</span><span
+                              style="font-family: MathJax_Main-italic;">a</span><span
+                              style="font-family: MathJax_Main-italic;">m</span><span
+                              style="font-family: MathJax_Main-italic;">p</span><span
+                              style="font-family: MathJax_Main-italic;">l</span><span
+                              style="font-family: MathJax_Main-italic;">e</span><span
+                              style="font-family: MathJax_Main-italic;"> </span><span
+                              style="font-family: MathJax_Main-italic;">9</span><span
+                              style="font-family: MathJax_Main-italic;">-</span><span
+                              style="font-family: MathJax_Main-italic;">1</span><span
+                              style="font-family: MathJax_Main-italic;">:</span></span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext class="MJX-tex-mathit" mathvariant="italic">Example 9-1:</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-20">\textit{Example 9-1:}</script><br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-21-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list = {1, 2, 3, 1, 2, 3, 1}&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-101"
+                style="width: 18.153em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 14.874em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1014.82em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-102"><span class="texatom" id="MathJax-Span-103"><span class="mrow"
+                          id="MathJax-Span-104"><span class="mtext" id="MathJax-Span-105"
+                            style="font-family: MathJax_Typewriter;">list <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>{1, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>3, <span style="margin-left: 0.296em;"></span>1,
+                            <span style="margin-left: 0.296em;"></span>2, <span style="margin-left: 0.296em;"></span>3,
+                            <span style="margin-left: 0.296em;"></span>1}</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list = {1, 2, 3, 1, 2, 3, 1}</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-21">\texttt{list = \{1, 2, 3, 1, 2, 3, 1\}}</script>, having
+          elements <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-22-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-106"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-107"><span class="texatom" id="MathJax-Span-108"><span class="mrow"
+                          id="MathJax-Span-109"><span class="mtext" id="MathJax-Span-110"
+                            style="font-family: MathJax_Typewriter;">1</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-22">\texttt{1}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-23-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-111"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-112"><span class="texatom" id="MathJax-Span-113"><span class="mrow"
+                          id="MathJax-Span-114"><span class="mtext" id="MathJax-Span-115"
+                            style="font-family: MathJax_Typewriter;">2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-23">\texttt{2}</script>, and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-24-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;3&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-116"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-117"><span class="texatom" id="MathJax-Span-118"><span class="mrow"
+                          id="MathJax-Span-119"><span class="mtext" id="MathJax-Span-120"
+                            style="font-family: MathJax_Typewriter;">3</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">3</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-24">\texttt{3}</script>.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-25-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list2 = {5, 5, 4, 4, 3, 3, 2, 2, 1, 1}&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-121"
+                style="width: 24.652em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 20.202em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1020.14em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-122"><span class="texatom" id="MathJax-Span-123"><span class="mrow"
+                          id="MathJax-Span-124"><span class="mtext" id="MathJax-Span-125"
+                            style="font-family: MathJax_Typewriter;">list2 <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>{5, <span style="margin-left: 0.296em;"></span>5,
+                            <span style="margin-left: 0.296em;"></span>4, <span style="margin-left: 0.296em;"></span>4,
+                            <span style="margin-left: 0.296em;"></span>3, <span style="margin-left: 0.296em;"></span>3,
+                            <span style="margin-left: 0.296em;"></span>2, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>1, <span
+                              style="margin-left: 0.296em;"></span>1}</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list2 = {5, 5, 4, 4, 3, 3, 2, 2, 1, 1}</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-25">\texttt{list2 = \{5, 5, 4, 4, 3, 3, 2, 2, 1, 1\}}</script>,
+          having elements <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-26-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-126"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-127"><span class="texatom" id="MathJax-Span-128"><span class="mrow"
+                          id="MathJax-Span-129"><span class="mtext" id="MathJax-Span-130"
+                            style="font-family: MathJax_Typewriter;">1</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-26">\texttt{1}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-27-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-131"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-132"><span class="texatom" id="MathJax-Span-133"><span class="mrow"
+                          id="MathJax-Span-134"><span class="mtext" id="MathJax-Span-135"
+                            style="font-family: MathJax_Typewriter;">2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-27">\texttt{2}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-28-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;3&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-136"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-137"><span class="texatom" id="MathJax-Span-138"><span class="mrow"
+                          id="MathJax-Span-139"><span class="mtext" id="MathJax-Span-140"
+                            style="font-family: MathJax_Typewriter;">3</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">3</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-28">\texttt{3}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-29-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;4&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-141"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-142"><span class="texatom" id="MathJax-Span-143"><span class="mrow"
+                          id="MathJax-Span-144"><span class="mtext" id="MathJax-Span-145"
+                            style="font-family: MathJax_Typewriter;">4</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">4</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-29">\texttt{4}</script>, and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-30-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;5&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-146"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-147"><span class="texatom" id="MathJax-Span-148"><span class="mrow"
+                          id="MathJax-Span-149"><span class="mtext" id="MathJax-Span-150"
+                            style="font-family: MathJax_Typewriter;">5</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">5</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-30">\texttt{5}</script>.<br>Because <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-31-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-151"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-152"><span class="texatom" id="MathJax-Span-153"><span class="mrow"
+                          id="MathJax-Span-154"><span class="mtext" id="MathJax-Span-155"
+                            style="font-family: MathJax_Typewriter;">list2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-31">\texttt{list2}</script> has all the elements which <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-32-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-156"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-157"><span class="texatom" id="MathJax-Span-158"><span class="mrow"
+                          id="MathJax-Span-159"><span class="mtext" id="MathJax-Span-160"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-32">\texttt{list}</script> has, after <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-33-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.retainAll(list2)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-161"
+                style="width: 13.469em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.01em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1010.83em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-162"><span class="texatom" id="MathJax-Span-163"><span class="mrow"
+                          id="MathJax-Span-164"><span class="mtext" id="MathJax-Span-165"
+                            style="font-family: MathJax_Typewriter;">list.retainAll(list2)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.retainAll(list2)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-33">\texttt{list.retainAll(list2)}</script> is executed, <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-34-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-166"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-167"><span class="texatom" id="MathJax-Span-168"><span class="mrow"
+                          id="MathJax-Span-169"><span class="mtext" id="MathJax-Span-170"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-34">\texttt{list}</script> remains the same:<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-35-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list = {1, 2, 3, 1, 2, 3, 1}&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-171"
+                style="width: 18.153em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 14.874em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1014.82em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-172"><span class="texatom" id="MathJax-Span-173"><span class="mrow"
+                          id="MathJax-Span-174"><span class="mtext" id="MathJax-Span-175"
+                            style="font-family: MathJax_Typewriter;">list <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>{1, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>3, <span style="margin-left: 0.296em;"></span>1,
+                            <span style="margin-left: 0.296em;"></span>2, <span style="margin-left: 0.296em;"></span>3,
+                            <span style="margin-left: 0.296em;"></span>1}</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list = {1, 2, 3, 1, 2, 3, 1}</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-35">\texttt{list = \{1, 2, 3, 1, 2, 3, 1\}}</script><br>Since
+          there is not any change in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span
+            class="MathJax" id="MathJax-Element-36-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-176"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-177"><span class="texatom" id="MathJax-Span-178"><span class="mrow"
+                          id="MathJax-Span-179"><span class="mtext" id="MathJax-Span-180"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-36">\texttt{list}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-37-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.retainAll(list2)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-181"
+                style="width: 13.469em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.01em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1010.83em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-182"><span class="texatom" id="MathJax-Span-183"><span class="mrow"
+                          id="MathJax-Span-184"><span class="mtext" id="MathJax-Span-185"
+                            style="font-family: MathJax_Typewriter;">list.retainAll(list2)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.retainAll(list2)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-37">\texttt{list.retainAll(list2)}</script> returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-38-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;false&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-186"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-187"><span class="texatom" id="MathJax-Span-188"><span class="mrow"
+                          id="MathJax-Span-189"><span class="mtext" id="MathJax-Span-190"
+                            style="font-family: MathJax_Typewriter;">false</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">false</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-38">\texttt{false}</script>.</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-39-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext class=&quot;MJX-tex-mathit&quot; mathvariant=&quot;italic&quot;&gt;Example 9-2:&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-191"
+                style="width: 6.853em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.624em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1005.62em, 2.52em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-192"><span class="texatom" id="MathJax-Span-193"><span class="mrow"
+                          id="MathJax-Span-194"><span class="mtext" id="MathJax-Span-195"
+                            style="font-family: MathJax_Main-italic;">E<span
+                              style="font-family: MathJax_Main-italic;">x</span><span
+                              style="font-family: MathJax_Main-italic;">a</span><span
+                              style="font-family: MathJax_Main-italic;">m</span><span
+                              style="font-family: MathJax_Main-italic;">p</span><span
+                              style="font-family: MathJax_Main-italic;">l</span><span
+                              style="font-family: MathJax_Main-italic;">e</span><span
+                              style="font-family: MathJax_Main-italic;"> </span><span
+                              style="font-family: MathJax_Main-italic;">9</span><span
+                              style="font-family: MathJax_Main-italic;">-</span><span
+                              style="font-family: MathJax_Main-italic;">2</span><span
+                              style="font-family: MathJax_Main-italic;">:</span></span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext class="MJX-tex-mathit" mathvariant="italic">Example 9-2:</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-39">\textit{Example 9-2:}</script><br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-40-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list = {1, 2, 3, 1, 2, 3, 1}&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-196"
+                style="width: 18.153em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 14.874em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1014.82em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-197"><span class="texatom" id="MathJax-Span-198"><span class="mrow"
+                          id="MathJax-Span-199"><span class="mtext" id="MathJax-Span-200"
+                            style="font-family: MathJax_Typewriter;">list <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>{1, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>3, <span style="margin-left: 0.296em;"></span>1,
+                            <span style="margin-left: 0.296em;"></span>2, <span style="margin-left: 0.296em;"></span>3,
+                            <span style="margin-left: 0.296em;"></span>1}</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list = {1, 2, 3, 1, 2, 3, 1}</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-40">\texttt{list = \{1, 2, 3, 1, 2, 3, 1\}}</script>, having
+          elements <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-41-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-201"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-202"><span class="texatom" id="MathJax-Span-203"><span class="mrow"
+                          id="MathJax-Span-204"><span class="mtext" id="MathJax-Span-205"
+                            style="font-family: MathJax_Typewriter;">1</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-41">\texttt{1}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-42-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-206"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-207"><span class="texatom" id="MathJax-Span-208"><span class="mrow"
+                          id="MathJax-Span-209"><span class="mtext" id="MathJax-Span-210"
+                            style="font-family: MathJax_Typewriter;">2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-42">\texttt{2}</script>, and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-43-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;3&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-211"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-212"><span class="texatom" id="MathJax-Span-213"><span class="mrow"
+                          id="MathJax-Span-214"><span class="mtext" id="MathJax-Span-215"
+                            style="font-family: MathJax_Typewriter;">3</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">3</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-43">\texttt{3}</script>.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-44-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list2 = {2, 2, 1, 1, 0, 0}&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-216"
+                style="width: 16.865em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 13.82em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1013.76em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-217"><span class="texatom" id="MathJax-Span-218"><span class="mrow"
+                          id="MathJax-Span-219"><span class="mtext" id="MathJax-Span-220"
+                            style="font-family: MathJax_Typewriter;">list2 <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>{2, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>1, <span style="margin-left: 0.296em;"></span>1,
+                            <span style="margin-left: 0.296em;"></span>0, <span
+                              style="margin-left: 0.296em;"></span>0}</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list2 = {2, 2, 1, 1, 0, 0}</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-44">\texttt{list2 = \{2, 2, 1, 1, 0, 0\}}</script>, having
+          elements <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-45-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;0&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-221"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-222"><span class="texatom" id="MathJax-Span-223"><span class="mrow"
+                          id="MathJax-Span-224"><span class="mtext" id="MathJax-Span-225"
+                            style="font-family: MathJax_Typewriter;">0</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">0</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-45">\texttt{0}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-46-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-226"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-227"><span class="texatom" id="MathJax-Span-228"><span class="mrow"
+                          id="MathJax-Span-229"><span class="mtext" id="MathJax-Span-230"
+                            style="font-family: MathJax_Typewriter;">1</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-46">\texttt{1}</script>, and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-47-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-231"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-232"><span class="texatom" id="MathJax-Span-233"><span class="mrow"
+                          id="MathJax-Span-234"><span class="mtext" id="MathJax-Span-235"
+                            style="font-family: MathJax_Typewriter;">2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-47">\texttt{2}</script>.<br>Because only <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-48-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-236"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-237"><span class="texatom" id="MathJax-Span-238"><span class="mrow"
+                          id="MathJax-Span-239"><span class="mtext" id="MathJax-Span-240"
+                            style="font-family: MathJax_Typewriter;">1</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-48">\texttt{1}</script> and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-49-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-241"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-242"><span class="texatom" id="MathJax-Span-243"><span class="mrow"
+                          id="MathJax-Span-244"><span class="mtext" id="MathJax-Span-245"
+                            style="font-family: MathJax_Typewriter;">2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-49">\texttt{2}</script> are common elements between <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-50-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-246"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-247"><span class="texatom" id="MathJax-Span-248"><span class="mrow"
+                          id="MathJax-Span-249"><span class="mtext" id="MathJax-Span-250"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-50">\texttt{list}</script> and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-51-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-251"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-252"><span class="texatom" id="MathJax-Span-253"><span class="mrow"
+                          id="MathJax-Span-254"><span class="mtext" id="MathJax-Span-255"
+                            style="font-family: MathJax_Typewriter;">list2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-51">\texttt{list2}</script>, after <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-52-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.retainAll(list2)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-256"
+                style="width: 13.469em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.01em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1010.83em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-257"><span class="texatom" id="MathJax-Span-258"><span class="mrow"
+                          id="MathJax-Span-259"><span class="mtext" id="MathJax-Span-260"
+                            style="font-family: MathJax_Typewriter;">list.retainAll(list2)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.retainAll(list2)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-52">\texttt{list.retainAll(list2)}</script> is executed, only
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-53-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;1&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-261"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-262"><span class="texatom" id="MathJax-Span-263"><span class="mrow"
+                          id="MathJax-Span-264"><span class="mtext" id="MathJax-Span-265"
+                            style="font-family: MathJax_Typewriter;">1</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">1</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-53">\texttt{1}</script> and <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-54-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;2&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-266"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-267"><span class="texatom" id="MathJax-Span-268"><span class="mrow"
+                          id="MathJax-Span-269"><span class="mtext" id="MathJax-Span-270"
+                            style="font-family: MathJax_Typewriter;">2</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">2</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-54">\texttt{2}</script> remains in <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-55-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-271"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-272"><span class="texatom" id="MathJax-Span-273"><span class="mrow"
+                          id="MathJax-Span-274"><span class="mtext" id="MathJax-Span-275"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-55">\texttt{list}</script>, which means the element <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-56-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;3&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-276"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-277"><span class="texatom" id="MathJax-Span-278"><span class="mrow"
+                          id="MathJax-Span-279"><span class="mtext" id="MathJax-Span-280"
+                            style="font-family: MathJax_Typewriter;">3</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">3</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-56">\texttt{3}</script> is removed from <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-57-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-281"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-282"><span class="texatom" id="MathJax-Span-283"><span class="mrow"
+                          id="MathJax-Span-284"><span class="mtext" id="MathJax-Span-285"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-57">\texttt{list}</script>:<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-58-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list = {1, 2, 1, 2, 1}&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-286"
+                style="width: 14.23em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.654em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1011.6em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-287"><span class="texatom" id="MathJax-Span-288"><span class="mrow"
+                          id="MathJax-Span-289"><span class="mtext" id="MathJax-Span-290"
+                            style="font-family: MathJax_Typewriter;">list <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>{1, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>1, <span style="margin-left: 0.296em;"></span>2,
+                            <span style="margin-left: 0.296em;"></span>1}</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list = {1, 2, 1, 2, 1}</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-58">\texttt{list = \{1, 2, 1, 2, 1\}}</script><br>Since there are
+          changes in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-59-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-291"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-292"><span class="texatom" id="MathJax-Span-293"><span class="mrow"
+                          id="MathJax-Span-294"><span class="mtext" id="MathJax-Span-295"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-59">\texttt{list}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-60-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.retainAll(list2)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-296"
+                style="width: 13.469em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 11.01em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1010.83em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-297"><span class="texatom" id="MathJax-Span-298"><span class="mrow"
+                          id="MathJax-Span-299"><span class="mtext" id="MathJax-Span-300"
+                            style="font-family: MathJax_Typewriter;">list.retainAll(list2)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.retainAll(list2)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-60">\texttt{list.retainAll(list2)}</script> returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-61-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;true&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-301"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.467em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-302"><span class="texatom" id="MathJax-Span-303"><span class="mrow"
+                          id="MathJax-Span-304"><span class="mtext" id="MathJax-Span-305"
+                            style="font-family: MathJax_Typewriter;">true</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">true</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-61">\texttt{true}</script>.</p>
+
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-62-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;bold&quot;&gt;FORBIDDEN CLASSES:&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-306"
+                style="width: 15.577em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 12.766em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1012.71em, 2.403em, -999.997em); top: -2.222em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-307"><span class="texatom" id="MathJax-Span-308"><span class="mrow"
+                          id="MathJax-Span-309"><span class="mtext" id="MathJax-Span-310"
+                            style="font-family: MathJax_Main-bold;">F<span
+                              style="font-family: MathJax_Main-bold;">O</span><span
+                              style="font-family: MathJax_Main-bold;">R</span><span
+                              style="font-family: MathJax_Main-bold;">B</span><span
+                              style="font-family: MathJax_Main-bold;">I</span><span
+                              style="font-family: MathJax_Main-bold;">D</span><span
+                              style="font-family: MathJax_Main-bold;">D</span><span
+                              style="font-family: MathJax_Main-bold;">E</span><span
+                              style="font-family: MathJax_Main-bold;">N</span><span
+                              style="font-family: MathJax_Main-bold;"> </span><span
+                              style="font-family: MathJax_Main-bold;">C</span><span
+                              style="font-family: MathJax_Main-bold;">L</span><span
+                              style="font-family: MathJax_Main-bold;">A</span><span
+                              style="font-family: MathJax_Main-bold;">S</span><span
+                              style="font-family: MathJax_Main-bold;">S</span><span
+                              style="font-family: MathJax_Main-bold;">E</span><span
+                              style="font-family: MathJax_Main-bold;">S</span><span
+                              style="font-family: MathJax_Main-bold;">:</span></span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.228em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="bold">FORBIDDEN CLASSES:</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-62">\textbf{FORBIDDEN CLASSES:}</script><br>Please note that all
+          the classes implementing list interface – such as <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-63-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;ArrayList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-311"
+                style="width: 5.799em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 4.745em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1004.69em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-312"><span class="texatom" id="MathJax-Span-313"><span class="mrow"
+                          id="MathJax-Span-314"><span class="mtext" id="MathJax-Span-315"
+                            style="font-family: MathJax_Typewriter;">ArrayList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">ArrayList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-63">\texttt{ArrayList}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-64-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;LinkedList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-316"
+                style="width: 6.443em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.272em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1005.21em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-317"><span class="texatom" id="MathJax-Span-318"><span class="mrow"
+                          id="MathJax-Span-319"><span class="mtext" id="MathJax-Span-320"
+                            style="font-family: MathJax_Typewriter;">LinkedList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">LinkedList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-64">\texttt{LinkedList}</script>, <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-65-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Stack&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-321"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.64em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-322"><span class="texatom" id="MathJax-Span-323"><span class="mrow"
+                          id="MathJax-Span-324"><span class="mtext" id="MathJax-Span-325"
+                            style="font-family: MathJax_Typewriter;">Stack</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Stack</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-65">\texttt{Stack}</script>, . . . , and so on – are not allowed
+          to use in this problem.</p>
+
+        <h3>Input Format</h3>
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-66-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;SimpleArrayList list = new SimpleArrayList();&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-326"
+                style="width: 28.926em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 23.715em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1023.54em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-327"><span class="texatom" id="MathJax-Span-328"><span class="mrow"
+                          id="MathJax-Span-329"><span class="mtext" id="MathJax-Span-330"
+                            style="font-family: MathJax_Typewriter;">SimpleArrayList <span
+                              style="margin-left: 0.296em;"></span>list <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>new <span
+                              style="margin-left: 0.296em;"></span>SimpleArrayList();</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">SimpleArrayList list = new SimpleArrayList();</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex"
+            id="MathJax-Element-66">\texttt{SimpleArrayList list = new SimpleArrayList();}</script>, the default
+          constructor sets the array size to zero.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-67-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list = new SimpleArrayList(initialSize);&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-331"
+                style="width: 25.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 21.022em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1020.85em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-332"><span class="texatom" id="MathJax-Span-333"><span class="mrow"
+                          id="MathJax-Span-334"><span class="mtext" id="MathJax-Span-335"
+                            style="font-family: MathJax_Typewriter;">list <span style="margin-left: 0.296em;"></span>=
+                            <span style="margin-left: 0.296em;"></span>new <span
+                              style="margin-left: 0.296em;"></span>SimpleArrayList(initialSize);</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list = new SimpleArrayList(initialSize);</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-67">\texttt{list = new SimpleArrayList(initialSize);}</script>,
+          where <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-68-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;initialSize&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-336"
+                style="width: 7.087em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.799em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1005.74em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-337"><span class="texatom" id="MathJax-Span-338"><span class="mrow"
+                          id="MathJax-Span-339"><span class="mtext" id="MathJax-Span-340"
+                            style="font-family: MathJax_Typewriter;">initialSize</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">initialSize</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-68">\texttt{initialSize}</script> is an non-negative
+          integer.<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-69-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.add(i)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-341"
+                style="width: 7.087em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.799em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1005.62em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-342"><span class="texatom" id="MathJax-Span-343"><span class="mrow"
+                          id="MathJax-Span-344"><span class="mtext" id="MathJax-Span-345"
+                            style="font-family: MathJax_Typewriter;">list.add(i)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.add(i)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-69">\texttt{list.add(i)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-70-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;i&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-346"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-347"><span class="texatom" id="MathJax-Span-348"><span class="mrow"
+                          id="MathJax-Span-349"><span class="mtext" id="MathJax-Span-350"
+                            style="font-family: MathJax_Typewriter;">i</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">i</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-70">\texttt{i}</script> is an <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-71-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Integer&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-351"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-352"><span class="texatom" id="MathJax-Span-353"><span class="mrow"
+                          id="MathJax-Span-354"><span class="mtext" id="MathJax-Span-355"
+                            style="font-family: MathJax_Typewriter;">Integer</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Integer</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-71">\texttt{Integer}</script> object.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-72-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.get(index)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-356"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1007.67em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-357"><span class="texatom" id="MathJax-Span-358"><span class="mrow"
+                          id="MathJax-Span-359"><span class="mtext" id="MathJax-Span-360"
+                            style="font-family: MathJax_Typewriter;">list.get(index)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.get(index)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-72">\texttt{list.get(index)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-73-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;index&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-361"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-362"><span class="texatom" id="MathJax-Span-363"><span class="mrow"
+                          id="MathJax-Span-364"><span class="mtext" id="MathJax-Span-365"
+                            style="font-family: MathJax_Typewriter;">index</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">index</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-73">\texttt{index}</script> is an integer indicating the
+          position.<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-74-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.set(index, element)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-366"
+                style="width: 15.401em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 12.591em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1012.41em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-367"><span class="texatom" id="MathJax-Span-368"><span class="mrow"
+                          id="MathJax-Span-369"><span class="mtext" id="MathJax-Span-370"
+                            style="font-family: MathJax_Typewriter;">list.set(index, <span
+                              style="margin-left: 0.296em;"></span>element)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.set(index, element)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-74">\texttt{list.set(index, element)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-75-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;index&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-371"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-372"><span class="texatom" id="MathJax-Span-373"><span class="mrow"
+                          id="MathJax-Span-374"><span class="mtext" id="MathJax-Span-375"
+                            style="font-family: MathJax_Typewriter;">index</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">index</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-75">\texttt{index}</script> is an integer indicating the position,
+          and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-76-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;element&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-376"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-377"><span class="texatom" id="MathJax-Span-378"><span class="mrow"
+                          id="MathJax-Span-379"><span class="mtext" id="MathJax-Span-380"
+                            style="font-family: MathJax_Typewriter;">element</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">element</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-76">\texttt{element}</script> is an <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-77-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Integer&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-381"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-382"><span class="texatom" id="MathJax-Span-383"><span class="mrow"
+                          id="MathJax-Span-384"><span class="mtext" id="MathJax-Span-385"
+                            style="font-family: MathJax_Typewriter;">Integer</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Integer</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-77">\texttt{Integer}</script> object.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-78-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.remove(index)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-386"
+                style="width: 11.595em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 9.488em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1009.31em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-387"><span class="texatom" id="MathJax-Span-388"><span class="mrow"
+                          id="MathJax-Span-389"><span class="mtext" id="MathJax-Span-390"
+                            style="font-family: MathJax_Typewriter;">list.remove(index)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.remove(index)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-78">\texttt{list.remove(index)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-79-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;index&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-391"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-392"><span class="texatom" id="MathJax-Span-393"><span class="mrow"
+                          id="MathJax-Span-394"><span class="mtext" id="MathJax-Span-395"
+                            style="font-family: MathJax_Typewriter;">index</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">index</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-79">\texttt{index}</script> is an integer indicating the
+          position.<br><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-80-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.retainAll(l)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-396"
+                style="width: 10.951em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 8.961em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1008.78em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-397"><span class="texatom" id="MathJax-Span-398"><span class="mrow"
+                          id="MathJax-Span-399"><span class="mtext" id="MathJax-Span-400"
+                            style="font-family: MathJax_Typewriter;">list.retainAll(l)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.retainAll(l)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-80">\texttt{list.retainAll(l)}</script>, where <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-81-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;l&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-401"
+                style="width: 0.647em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 0.53em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1000.47em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-402"><span class="texatom" id="MathJax-Span-403"><span class="mrow"
+                          id="MathJax-Span-404"><span class="mtext" id="MathJax-Span-405"
+                            style="font-family: MathJax_Typewriter;">l</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">l</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-81">\texttt{l}</script> is a <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-82-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;SimpleArrayList&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-406"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1007.79em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-407"><span class="texatom" id="MathJax-Span-408"><span class="mrow"
+                          id="MathJax-Span-409"><span class="mtext" id="MathJax-Span-410"
+                            style="font-family: MathJax_Typewriter;">SimpleArrayList</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.218em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">SimpleArrayList</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-82">\texttt{SimpleArrayList}</script> object.</p>
+
+        <h3>Output Format</h3>
+        <p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-83-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.get(index)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-411"
+                style="width: 9.605em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 7.848em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1007.67em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-412"><span class="texatom" id="MathJax-Span-413"><span class="mrow"
+                          id="MathJax-Span-414"><span class="mtext" id="MathJax-Span-415"
+                            style="font-family: MathJax_Typewriter;">list.get(index)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.289em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.get(index)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-83">\texttt{list.get(index)}</script> returns an <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-84-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Integer&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-416"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-417"><span class="texatom" id="MathJax-Span-418"><span class="mrow"
+                          id="MathJax-Span-419"><span class="mtext" id="MathJax-Span-420"
+                            style="font-family: MathJax_Typewriter;">Integer</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Integer</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-84">\texttt{Integer}</script> object, which is the element at the
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-85-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;index&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-421"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-422"><span class="texatom" id="MathJax-Span-423"><span class="mrow"
+                          id="MathJax-Span-424"><span class="mtext" id="MathJax-Span-425"
+                            style="font-family: MathJax_Typewriter;">index</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">index</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-85">\texttt{index}</script> position.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-86-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.set(index, element)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-426"
+                style="width: 15.401em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 12.591em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1012.41em, 2.462em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-427"><span class="texatom" id="MathJax-Span-428"><span class="mrow"
+                          id="MathJax-Span-429"><span class="mtext" id="MathJax-Span-430"
+                            style="font-family: MathJax_Typewriter;">list.set(index, <span
+                              style="margin-left: 0.296em;"></span>element)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.set(index, element)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-86">\texttt{list.set(index, element)}</script> returns an <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-87-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;Integer&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-431"
+                style="width: 4.511em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 3.691em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1003.63em, 2.579em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-432"><span class="texatom" id="MathJax-Span-433"><span class="mrow"
+                          id="MathJax-Span-434"><span class="mtext" id="MathJax-Span-435"
+                            style="font-family: MathJax_Typewriter;">Integer</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.354em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">Integer</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-87">\texttt{Integer}</script> object, which is the element at the
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-88-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;index&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-436"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-437"><span class="texatom" id="MathJax-Span-438"><span class="mrow"
+                          id="MathJax-Span-439"><span class="mtext" id="MathJax-Span-440"
+                            style="font-family: MathJax_Typewriter;">index</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">index</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-88">\texttt{index}</script> position before this setting.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-89-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.remove(index)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-441"
+                style="width: 11.595em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 9.488em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1009.31em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-442"><span class="texatom" id="MathJax-Span-443"><span class="mrow"
+                          id="MathJax-Span-444"><span class="mtext" id="MathJax-Span-445"
+                            style="font-family: MathJax_Typewriter;">list.remove(index)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.remove(index)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-89">\texttt{list.remove(index)}</script> returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-90-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;true&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-446"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.467em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-447"><span class="texatom" id="MathJax-Span-448"><span class="mrow"
+                          id="MathJax-Span-449"><span class="mtext" id="MathJax-Span-450"
+                            style="font-family: MathJax_Typewriter;">true</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">true</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-90">\texttt{true}</script> if it removes successfully, returns
+          <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-91-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;false&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-451"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-452"><span class="texatom" id="MathJax-Span-453"><span class="mrow"
+                          id="MathJax-Span-454"><span class="mtext" id="MathJax-Span-455"
+                            style="font-family: MathJax_Typewriter;">false</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">false</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-91">\texttt{false}</script> otherwise.<br><span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-92-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.size()&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-456"
+                style="width: 7.087em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 5.799em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1005.62em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-457"><span class="texatom" id="MathJax-Span-458"><span class="mrow"
+                          id="MathJax-Span-459"><span class="mtext" id="MathJax-Span-460"
+                            style="font-family: MathJax_Typewriter;">list.size()</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.size()</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-92">\texttt{list.size()}</script> returns an integer showing the
+          number of elements in this array.<br><span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-93-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list.retainAll(l)&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-461"
+                style="width: 10.951em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 8.961em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.291em, 1008.78em, 2.403em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-462"><span class="texatom" id="MathJax-Span-463"><span class="mrow"
+                          id="MathJax-Span-464"><span class="mtext" id="MathJax-Span-465"
+                            style="font-family: MathJax_Typewriter;">list.retainAll(l)</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list.retainAll(l)</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-93">\texttt{list.retainAll(l)}</script> returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-94-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;true&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-466"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.467em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-467"><span class="texatom" id="MathJax-Span-468"><span class="mrow"
+                          id="MathJax-Span-469"><span class="mtext" id="MathJax-Span-470"
+                            style="font-family: MathJax_Typewriter;">true</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.861em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">true</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-94">\texttt{true}</script> if <span class="MathJax_Preview"
+            style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-95-Frame"
+            tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;list&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-471"
+                style="width: 2.579em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.111em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.408em, 1002.05em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-472"><span class="texatom" id="MathJax-Span-473"><span class="mrow"
+                          id="MathJax-Span-474"><span class="mtext" id="MathJax-Span-475"
+                            style="font-family: MathJax_Typewriter;">list</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">list</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-95">\texttt{list}</script> is changed, returns <span
+            class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax"
+            id="MathJax-Element-96-Frame" tabindex="0" style="position: relative;"
+            data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mtext mathvariant=&quot;monospace&quot;&gt;false&lt;/mtext&gt;&lt;/mrow&gt;&lt;/math&gt;"
+            role="presentation">
+            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-476"
+                style="width: 3.223em; display: inline-block;"><span
+                  style="display: inline-block; position: relative; width: 2.638em; height: 0px; font-size: 122%;"><span
+                    style="position: absolute; clip: rect(1.35em, 1002.58em, 2.345em, -999.997em); top: -2.163em; left: 0em;"><span
+                      class="mrow" id="MathJax-Span-477"><span class="texatom" id="MathJax-Span-478"><span class="mrow"
+                          id="MathJax-Span-479"><span class="mtext" id="MathJax-Span-480"
+                            style="font-family: MathJax_Typewriter;">false</span></span></span></span><span
+                      style="display: inline-block; width: 0px; height: 2.169em;"></span></span></span><span
+                  style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span>
+            </nobr><span class="MJX_Assistive_MathML" role="presentation"><math
+                xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext mathvariant="monospace">false</mtext>
+                </mrow>
+              </math></span>
+          </span>
+          <script type="math/tex" id="MathJax-Element-96">\texttt{false}</script> otherwise.</p>
+
+        <h3>Sample Input</h3>
+        <pre><code>System.out.println("=== TASK 1 ===");
+SimpleArrayList list = new SimpleArrayList();
+System.out.println(list.get(0));
+
+System.out.println("=== TASK 2 ===");
+list.add(2);
+list.add(5);
+list.add(8);
+list.add(1);
+list.add(12);
+System.out.println(list.get(2));
+
+System.out.println("=== TASK 3 ===");
+System.out.println(list.get(5));
+
+System.out.println("=== TASK 4 ===");
+System.out.println(list.set(2, 100));
+
+System.out.println("=== TASK 5 ===");
+System.out.println(list.get(2));
+
+System.out.println("=== TASK 6 ===");
+System.out.println(list.set(5, 100));
+
+System.out.println("=== TASK 7 ===");
+System.out.println(list.remove(2));
+
+System.out.println("=== TASK 8 ===");
+System.out.println(list.get(2));
+
+System.out.println("=== TASK 9 ===");
+System.out.println(list.remove(2));
+
+System.out.println("=== TASK 10 ===");
+System.out.println(list.get(2));
+
+System.out.println("=== TASK 11 ===");
+System.out.println(list.get(3));
+
+System.out.println("=== TASK 12 ===");
+list.clear();
+System.out.println(list.get(0));
+
+System.out.println("=== TASK 13 ===");
+SimpleArrayList list2 = new SimpleArrayList(5);
+System.out.println(list2.get(3));
+
+System.out.println("=== TASK 14 ===");
+System.out.println(list2.get(9));
+
+System.out.println("=== TASK 15 ===");
+for (int i = 0; i &lt; list2.size(); i++) {
+	System.out.println(list2.set(i, i));
+}
+for (int i = 0; i &lt; 5; i++) {
+	list.add(i);
+}
+System.out.println(list.retainAll(list2));
+
+System.out.println("=== TASK 16 ===");
+for (int i = 0; i &lt; list.size(); i++) {
+	System.out.println(list.get(i));
+}
+
+System.out.println("=== TASK 17 ===");
+System.out.println(list2.remove(0));
+System.out.println(list2.remove(2));
+System.out.println(list.retainAll(list2));
+
+System.out.println("=== TASK 18 ===");
+for (int i = 0; i &lt; list.size(); i++) {
+	System.out.println(list.get(i));
+}
+
+System.out.println("=== TASK 19 ===");
+System.out.println(list.set(1, null));
+System.out.println(list.remove(1));
+
+System.out.println("=== TASK 20 ===");
+for (int i = 0; i &lt; list.size(); i++) {
+	System.out.println(list.get(i));
+}
+
+System.out.println("=== TASK 21 ===");
+System.out.println(list.set(1, 123));
+
+System.out.println("=== TASK 22 ===");
+for (int i = 0; i &lt; list.size(); i++) {
+	System.out.println(list.get(i));
+}
+
+System.out.println("=== TASK 23 ===");
+System.out.println(list.remove(1));
+
+System.out.println("=== TASK 24 ===");
+for (int i = 0; i &lt; list.size(); i++) {
+	System.out.println(list.get(i));
+}
+
+System.out.println("=== TASK 25 ===");
+list.add(null);
+System.out.println(list.remove(2));
+
+System.out.println("=== TASK 26 ===");
+for (int i = 0; i &lt; list.size(); i++) {
+	System.out.println(list.get(i));
+}</code></pre>
+
+        <h3>Sample Output</h3>
+        <pre><code>=== TASK 1 ===
+null
+=== TASK 2 ===
+8
+=== TASK 3 ===
+null
+=== TASK 4 ===
+8
+=== TASK 5 ===
+100
+=== TASK 6 ===
+null
+=== TASK 7 ===
+true
+=== TASK 8 ===
+1
+=== TASK 9 ===
+true
+=== TASK 10 ===
+12
+=== TASK 11 ===
+null
+=== TASK 12 ===
+null
+=== TASK 13 ===
+0
+=== TASK 14 ===
+null
+=== TASK 15 ===
+0
+0
+0
+0
+0
+false
+=== TASK 16 ===
+0
+1
+2
+3
+4
+=== TASK 17 ===
+true
+true
+true
+=== TASK 18 ===
+1
+2
+4
+=== TASK 19 ===
+2
+false
+=== TASK 20 ===
+1
+null
+4
+=== TASK 21 ===
+null
+=== TASK 22 ===
+1
+123
+4
+=== TASK 23 ===
+true
+=== TASK 24 ===
+1
+4
+=== TASK 25 ===
+false
+=== TASK 26 ===
+1
+4
+null</code></pre>
+
+        <h3>Required Files</h3>
+        <div id="required-files">
+          <ul>
+
+            <li><tt>SimpleArrayList.java</tt> (Submitted)</li>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <h6 class="text-center">
+        Developed by Hao-Ying Liang (梁浩穎) and Wei-Cheng Li (李蔚成).<br>
+        Credits to <a target="_blank" href="http://ada2015.csie.org/">ADA2015</a> for inspiration.
+      </h6>
+      <h6>
+      </h6>
+    </div>
+  </footer>
+
+
+  <div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;">
+    <div id="MathJax_Font_Test"
+      style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main-bold, sans-serif;">
+    </div>
+  </div>
+</body>
+
+</html>
