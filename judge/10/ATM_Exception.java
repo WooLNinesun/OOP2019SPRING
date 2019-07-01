@@ -1,25 +1,21 @@
 
 public class ATM_Exception extends Exception {
     private static final long serialVersionUID = 1L;
-    String errMsg;
 
     public enum ExceptionTYPE {
-        BALANCE_NOT_ENOUGH, AMOUNT_INVALID
-    }
+        BALANCE_NOT_ENOUGH("BALANCE_NOT_ENOUGH"), AMOUNT_INVALID("AMOUNT_INVALID");
+        private final String message;
 
-    public ATM_Exception(ATM_Exception.ExceptionTYPE ex_type) {
-        switch (ex_type) {
-        case BALANCE_NOT_ENOUGH:
-            this.errMsg = "BALANCE_NOT_ENOUGH";
-            break;
-        case AMOUNT_INVALID:
-            this.errMsg = "AMOUNT_INVALID";
-            break;
+        private ExceptionTYPE(String message) {
+            this.message = message;
+        }
+
+        public String toString() {
+            return this.message;
         }
     }
 
-    @Override
-    public String getMessage() {
-        return this.errMsg;
+    public ATM_Exception(ATM_Exception.ExceptionTYPE ex_type) {
+        super(ex_type.toString());
     }
 }

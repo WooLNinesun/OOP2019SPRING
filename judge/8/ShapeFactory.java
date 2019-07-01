@@ -4,6 +4,12 @@ public class ShapeFactory {
         Circle, Square, Triangle
     }
 
+    /**
+     * 
+     * @param shapeType
+     * @param length
+     * @return returns an {shapeType} object which 'is-a' Shape object.
+     */
     public Shape createShape(ShapeFactory.Type shapeType, double length) {
         switch (shapeType) {
         case Circle:
